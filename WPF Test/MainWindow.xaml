@@ -2,10 +2,17 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="WPF_Test.MainWindow"
-        Title="MainWindow" Height="350.339" Width="675.424">
+        Title="MainWindow" Height="370" Width="700" MinHeight="370" MinWidth="700">
     <Grid x:Name="mainGrid" Margin="0,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="67*"/>
+            <RowDefinition Height="194*"/>
+            <RowDefinition Height="69*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="148"/>
             <ColumnDefinition/>
+            <ColumnDefinition Width="147"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -14,7 +21,7 @@
                 <GradientStop Color="#FF538F6C" Offset="0.637"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="114" Margin="10,10,0,0" VerticalAlignment="Top" Width="134">
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="114" Margin="10,10,0,0" VerticalAlignment="Top" Width="134" Grid.RowSpan="2">
             <TextBox x:Name="Dicksbox" TextWrapping="Wrap" Text="TextBox&#xA;Dicks go here&#xA;&#xA;&#xA;&#xA;To here&#xA;&#xA;&#xA;And even here" ToolTip="heh" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Margin="1,1,-1,-1">
                 <TextBox.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -24,22 +31,29 @@
                 </TextBox.Background>
             </TextBox>
         </Border>
-        <Button x:Name="SecretButton" Content="Secretbutton" HorizontalAlignment="Left" Height="38" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="100" Click="SecretButton_Click"/>
-        <Button x:Name="DicksButton" Content="DICKSBUTTON" HorizontalAlignment="Left" Height="38" Margin="149,10,0,0" VerticalAlignment="Top" Width="212" Click="Button_Click" FontSize="22"/>
-        <ComboBox x:Name="DickSelection" HorizontalAlignment="Left" Height="28" Margin="366,10,0,0" VerticalAlignment="Top" Width="116" SelectedIndex="0" FontSize="16">
-            <System:String>Dicks</System:String>
-            <System:String>Pussies</System:String>
-            <System:String>Tits</System:String>
-            <System:String>Asses</System:String>
-        </ComboBox>
-        <ScrollViewer HorizontalAlignment="Center" VerticalAlignment="Center" Margin="163,53,185,59" Height="208" Width="319" >
+        <Button x:Name="SecretButton" Content="Secretbutton" HorizontalAlignment="Left" Height="38" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="100" Click="SecretButton_Click" Grid.Row="2"/>
+        
+        <ScrollViewer HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" Grid.Row="1">
             <TextBlock x:Name="DicksMessage" FontSize="72" Text="The dicks message" ScrollViewer.HorizontalScrollBarVisibility="Visible" TextWrapping="Wrap" />
 
         </ScrollViewer>
-        <Button x:Name="BadButton" Content="Terrible" HorizontalAlignment="Left" Height="28" Margin="523,10,0,0" VerticalAlignment="Top" Width="134" Click="BadButton_Click"/>
-        <TextBox x:Name="TerribleBox" HorizontalAlignment="Left" Height="28" Margin="523,48,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="134"/>
-        <Button x:Name="GoodButton" Content="Good" HorizontalAlignment="Left" Height="29" Margin="523,81,0,0" VerticalAlignment="Top" Width="134" Click="GoodButton_Click"/>
-        <TextBox x:Name="GoodBox" HorizontalAlignment="Left" Height="29" Margin="523,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="134"/>
+        <Button x:Name="BadButton" Content="Terrible" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Top" Click="BadButton_Click" Grid.Column="2" Grid.Row="1"/>
+        <TextBox x:Name="TerribleBox" HorizontalAlignment="Stretch" Margin="0,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Grid.Column="2" Grid.Row="1"/>
+        <Button x:Name="GoodButton" Content="Good" HorizontalAlignment="Stretch" Margin="0,54,0,0" VerticalAlignment="Top" Click="GoodButton_Click" Grid.Column="2" Grid.Row="1"/>
+        <TextBox x:Name="GoodBox" Margin="0,81,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="1"/>
+        <Grid x:Name="Grid2" HorizontalAlignment="Left" Height="59" Margin="1,10,0,0" VerticalAlignment="Top" Width="396" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20*"/>
+                <ColumnDefinition Width="13*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="DicksButton" Content="DICKSBUTTON" HorizontalAlignment="Left" Padding="45,5,45,5" VerticalAlignment="Center" Click="Button_Click" FontSize="22" Grid.Column="0"/>
+            <ComboBox x:Name="DickSelection" HorizontalAlignment="Left" VerticalAlignment="Center" SelectedIndex="0" FontSize="16" Grid.Column="1" MinWidth="100">
+                <System:String>Dicks</System:String>
+                <System:String>Pussies</System:String>
+                <System:String>Tits</System:String>
+                <System:String>Asses</System:String>
+            </ComboBox>
+        </Grid>
 
     </Grid>
 </Window>
